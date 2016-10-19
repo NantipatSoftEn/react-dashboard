@@ -33,12 +33,8 @@ class App extends Component {
 	}
 
 	componentDidUpdate () {
-		console.log(this.props.children.props.route.title);
+		// console.log(this.props.children.props.route.title);
 	}
-
-	// setActiveMenuItem = (menu) => {
-	// 	return menu;
-	// }
 
 	render() {
 		return (
@@ -53,6 +49,7 @@ class App extends Component {
 					pageHeader={this.state.title}
 					pageDesc={this.state.subTitle}>
 				</BodyWrapper>
+				
 				<Footer />
 			</div>
 		)

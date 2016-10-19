@@ -1,16 +1,17 @@
 import React, { Component, PropTypes } from 'react';
 import { render } from 'react-dom';
 
-import NavLink from './NavLink';
+import UserNavigation from './LeftSideBar/UserNavigation';
+import GlobalSearch from './LeftSideBar/GlobalSearch';
+import HeaderMenu from './LeftSideBar/HeaderMenu';
+
+import SingleMenu from './LeftSideBar/SingleMenu';
 
 class LeftSideBar extends Component {
+	// broad cast context from App.js
 	static contextTypes = {
 		appProps: PropTypes.object.isRequired
 	}
-
-	// static propTypes: {
-	// 	setActiveMenuItem: PropTypes.func.isRequired
-	// }
 
 	constructor (props, context) {
 		super(props, context);
@@ -20,10 +21,6 @@ class LeftSideBar extends Component {
 			activeClass: 'active'
 		}
 	}
-
-	// onHandleActiveMenuItem (menu) {
-	// 	this.setState({ activeMenu: this.props.setActiveMenuItem(menu) });
-	// }
 
 	// This life cycle called before render()
 	componentWillMount () {
@@ -35,36 +32,19 @@ class LeftSideBar extends Component {
 	}
 
 	render () {
-		// let pathname = this.context.appProps.location.pathname;
-		console.log(this.state.activeMenu);
-		console.log(this.state.activeMenu == '/home');
-
+		console.log(this.context.appProps.location.pathname);
 		return (
 			<aside className="main-sidebar">
 				<section className="sidebar">
-					<div className="user-panel">
-						<div className="pull-left image">
-							<img src="public/images/golf.jpg" className="img-circle" alt="User Image" />
-						</div>
-						<div className="pull-left info">
-							<p>Teerapong Singthong</p>
-							<a href="#"><i className="fa fa-circle text-success"></i> Online</a>
-						</div>
-					</div>
+					{/* TODO: Passing user infornation props */}
+					<UserNavigation></UserNavigation>
 
-					<form action="#" method="get" className="sidebar-form">
-						<div className="input-group">
-							<input type="text" name="q" className="form-control" placeholder="Search..." />
-							<span className="input-group-btn">
-								<button type="submit" name="search" id="search-btn" className="btn btn-flat">
-									<i className="fa fa-search"></i>
-								</button>
-							</span>
-						</div>
-					</form>
+					{/* TODO Dispatch action to search page */}
+					<GlobalSearch></GlobalSearch>
 
 					<ul className="sidebar-menu">
-						<li className="header">Dashboard</li>
+						<HeaderMenu title="Dashboard"></HeaderMenu>
+						{/*}
 						<li className={(this.state.activeMenu === '/' || this.state.activeMenu === '/home') ? this.state.activeClass : ''}>
 							<a href="#">
 								<i className="fa fa-dashboard"></i> <span>Dashboard</span>
@@ -78,7 +58,7 @@ class LeftSideBar extends Component {
 									className={(this.state.activeMenu === '/home') ? this.state.activeClass : ''}>
 									<NavLink to="/home">
 										<i className="fa fa-circle-o"></i>
-										System
+										Home
 									</NavLink>
 								</li>
 								<li>
@@ -89,21 +69,24 @@ class LeftSideBar extends Component {
 								</li>
 							</ul>
 						</li>
+						{*/}
 
-						<li className="header">Management</li>
-						<li onClick={() => this.setActiveMenuItem('/product')}
-							className={(this.state.activeMenu === '/product') ? 'active' : ''}>
-							<NavLink to="/product">
-								<i className="fa fa-link"></i>
-								<span>Product</span>
-							</NavLink>
-						</li>
-						<li className="">
-							<NavLink to="/todo">
-								<i className="fa fa-link"></i>
-								<span>Todo</span>
-							</NavLink>
-						</li>
+						<HeaderMenu title="Management"></HeaderMenu>
+						<SingleMenu
+							handleOnclick={() => this.setActiveMenuItem()}
+							title="Product"
+							activeMenu="/product"
+							currentLocation={this.context.appProps.location.pathname}>
+						</SingleMenu>
+						<SingleMenu
+							handleOnclick={() => this.setActiveMenuItem()}
+							title="Todo"
+							activeMenu="/todo"
+							currentLocation={this.context.appProps.location.pathname}>
+						</SingleMenu>
+
+
+
 						<li className="treeview">
 							<a href="#"><i className="fa fa-link"></i> <span>Multilevel</span>
 							<span className="pull-right-container">

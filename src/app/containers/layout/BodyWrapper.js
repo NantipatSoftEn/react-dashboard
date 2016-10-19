@@ -17,6 +17,12 @@ class BodyWrapper extends Component {
 		}
 	}
 
+	componentWillMount () {
+		this.setState({
+			pathname: this.props.content.props.location.pathname
+		});
+	}
+
 	render () {
 		return (
 			<div className="content-wrapper">
