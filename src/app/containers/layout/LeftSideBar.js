@@ -7,18 +7,55 @@ import HeaderMenu from './LeftSideBar/HeaderMenu';
 
 import SingleMenu from './LeftSideBar/SingleMenu';
 
-class LeftSideBar extends Component {
-	// broad cast context from App.js
-	static contextTypes = {
-		appProps: PropTypes.object.isRequired
-	}
+import TreeViewMenu from './LeftSideBar/TreeViewMenu';
 
+class LeftSideBar extends Component {
 	constructor (props, context) {
 		super(props, context);
 		this.state = {
 			activeMenu: '/',
 			activeClassTree: 'active treeview',
-			activeClass: 'active'
+			activeClass: 'active',
+			menus: [
+				{
+					id: 0,
+					title: 'Easy Redux',
+					activeMenu: "/easy-redux"
+				} , {
+					id: 1,
+					title: 'React Life Cycle',
+					activeMenu: '/react-life-cycle'
+				}
+			]
+		};
+	}
+
+	// receive context from App.js
+	static contextTypes = {
+		appProps: PropTypes.object.isRequired
+	}
+
+	// By adding childContextTypes and getChildContext
+	// React passes the information down automatically
+	// and any component in the subtree
+	setActiveMenuItem = (menu) => {
+		this.setState({
+			activeMenu: menu
+		});
+
+		console.log(
+			"%csetActiveMenuItem",
+			"color: yellow; font-style: italic; background-color: blue;padding: 2px"
+		);
+	}
+
+	static childContextTypes = {
+		setActiveMenuItem: PropTypes.func
+	}
+
+	getChildContext () {
+		return {
+			setActiveMenuItem: this.setActiveMenuItem
 		}
 	}
 
@@ -27,12 +64,7 @@ class LeftSideBar extends Component {
 		this.setActiveMenuItem(this.context.appProps.location.pathname);
 	}
 
-	setActiveMenuItem = (menu) => {
-		this.setState({activeMenu: menu});
-	}
-
 	render () {
-		console.log(this.context.appProps.location.pathname);
 		return (
 			<aside className="main-sidebar">
 				<section className="sidebar">
@@ -44,60 +76,21 @@ class LeftSideBar extends Component {
 
 					<ul className="sidebar-menu">
 						<HeaderMenu title="Dashboard"></HeaderMenu>
-						{/*}
-						<li className={(this.state.activeMenu === '/' || this.state.activeMenu === '/home') ? this.state.activeClass : ''}>
-							<a href="#">
-								<i className="fa fa-dashboard"></i> <span>Dashboard</span>
-								<span className="pull-right-container">
-								<i className="fa fa-angle-left pull-right"></i>
-								</span>
-							</a>
-
-							<ul className="treeview-menu">
-								<li onClick={() => this.setActiveMenuItem('/home')}
-									className={(this.state.activeMenu === '/home') ? this.state.activeClass : ''}>
-									<NavLink to="/home">
-										<i className="fa fa-circle-o"></i>
-										Home
-									</NavLink>
-								</li>
-								<li>
-									<a href="index2.html">
-										<i className="fa fa-circle-o"></i>
-										Live Streaming
-									</a>
-								</li>
-							</ul>
-						</li>
-						{*/}
+						<TreeViewMenu
+							title="Categories"
+							menus={this.state.menus}>
+						</TreeViewMenu>
 
 						<HeaderMenu title="Management"></HeaderMenu>
 						<SingleMenu
-							handleOnclick={() => this.setActiveMenuItem()}
 							title="Product"
-							activeMenu="/product"
-							currentLocation={this.context.appProps.location.pathname}>
+							activeMenu="/product">
 						</SingleMenu>
+
 						<SingleMenu
-							handleOnclick={() => this.setActiveMenuItem()}
 							title="Todo"
-							activeMenu="/todo"
-							currentLocation={this.context.appProps.location.pathname}>
+							activeMenu="/todo">
 						</SingleMenu>
-
-
-
-						<li className="treeview">
-							<a href="#"><i className="fa fa-link"></i> <span>Multilevel</span>
-							<span className="pull-right-container">
-							<i className="fa fa-angle-left pull-right"></i>
-							</span>
-							</a>
-							<ul className="treeview-menu">
-								<li><a href="#">Link in level 2</a></li>
-								<li><a href="#">Link in level 2</a></li>
-							</ul>
-						</li>
 					</ul>
 				</section>
 			</aside>

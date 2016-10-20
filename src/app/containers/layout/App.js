@@ -49,7 +49,7 @@ class App extends Component {
 					pageHeader={this.state.title}
 					pageDesc={this.state.subTitle}>
 				</BodyWrapper>
-				
+
 				<Footer />
 			</div>
 		)
