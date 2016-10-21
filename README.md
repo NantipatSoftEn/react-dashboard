@@ -1,2 +1,2 @@
-# react-musik
-Personal music categorize and management tools that developing on ReactJS ecosystem
+# React-Dashboard
+This is a sandbox space that I have been worked with React Ecosystem.
