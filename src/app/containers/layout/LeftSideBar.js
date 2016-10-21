@@ -75,6 +75,11 @@ class LeftSideBar extends Component {
 					<GlobalSearch></GlobalSearch>
 
 					<ul className="sidebar-menu">
+						<SingleMenu
+							title="Home"
+							activeMenu="/home">
+						</SingleMenu>
+
 						<HeaderMenu title="Dashboard"></HeaderMenu>
 						<TreeViewMenu
 							title="Categories"

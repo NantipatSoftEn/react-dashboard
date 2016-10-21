@@ -33,16 +33,17 @@ class App extends Component {
 	}
 
 	componentDidUpdate () {
-		// console.log(this.props.children.props.route.title);
+		document.title = this.props.children.props.route.title;
 	}
 
 	render() {
+		document.title = this.props.children.props.route.title;
+
 		return (
 			<div>
 				<Header />
 
-				<LeftSideBar>
-				</LeftSideBar>
+				<LeftSideBar></LeftSideBar>
 
 				<BodyWrapper
 					content={this.props.children}
