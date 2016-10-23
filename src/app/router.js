@@ -18,11 +18,10 @@ export default (
 		<Route path='/' component={App}>
 			<IndexRoute component={Home}
 				title="Home | My Sandbox"
-				subTitle="This is a react sandbox" />
+				pageDesc="This is a react sandbox" />
 			<Route path='home'
 				component={Home}
-				title="Home | My Sandbox"
-				subTitle="This is a react sandbox" />
+				title="Home | My Sandbox" />
 			<Route path='todo'
 				component={Todo}
 				title="Todo | Pull real-time data from database" />

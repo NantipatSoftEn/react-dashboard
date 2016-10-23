@@ -6,29 +6,27 @@ import NavLink from '../NavLink';
 class SingleMenu extends Component {
 	constructor (props, context) {
 		super(props, context);
-		this.state = {
-			activeClass: 'active'
-		}
 	}
 
 	static propType = {
-		activeMenu: PropTypes.string.isRequired,
-		currentLocation: PropTypes.string.isRequired,
-		title: PropTypes.string.isRequired
+		redirect: PropTypes.string.isRequired,
+		title: PropTypes.string.isRequired,
+		activeMenu: PropTypes.string
 	}
 
 	// receive context
 	static contextTypes = {
 		appProps: PropTypes.object.isRequired,	// App.js
-		setActiveMenuItem: PropTypes.func	// LeftSideBar.js
+		setActiveMenuItem: PropTypes.func,	// LeftSideBar.js
+		activeClass: PropTypes.string,
+		// activeMenu: PropTypes.string
 	}
 
 	render () {
-		/* TODO: Need to have refactor since it is over complicated ha ha */
 		return (
-			<li onClick={() => this.context.setActiveMenuItem(this.props.activeMenu)}
-				className={(this.props.activeMenu === this.context.appProps.location.pathname) ? this.state.activeClass : ''}>
-				<NavLink to={this.props.activeMenu}>
+			<li onClick={() => this.context.setActiveMenuItem(this.props.redirect)}
+				className={(this.props.activeMenu === this.props.redirect) ? this.context.activeClass : ''}>
+				<NavLink to={this.props.redirect}>
 					<i className="fa fa-link"></i>
 					<span>{this.props.title}</span>
 				</NavLink>

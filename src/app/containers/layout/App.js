@@ -20,6 +20,8 @@ class App extends Component {
 			title: this.props.children.props.route.title,
 			subTitle: this.props.children.props.route.subTitle
 		}
+
+		document.title = this.props.children.props.route.title;
 	}
 
 	static childContextTypes = {
@@ -32,13 +34,7 @@ class App extends Component {
 		}
 	}
 
-	componentDidUpdate () {
-		document.title = this.props.children.props.route.title;
-	}
-
 	render() {
-		document.title = this.props.children.props.route.title;
-
 		return (
 			<div>
 				<Header />
@@ -54,6 +50,10 @@ class App extends Component {
 				<Footer />
 			</div>
 		)
+	}
+
+	componentDidUpdate () {
+		document.title = this.props.children.props.route.title;
 	}
 }
 

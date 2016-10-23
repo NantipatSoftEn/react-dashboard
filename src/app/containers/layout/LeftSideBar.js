@@ -9,6 +9,31 @@ import SingleMenu from './LeftSideBar/SingleMenu';
 
 import TreeViewMenu from './LeftSideBar/TreeViewMenu';
 
+import { connect } from 'react-redux';
+import { spreadBreadCrump } from '../../actions/breadCrumbAction';
+
+/*
+	component will subscribe to Redux store updates.
+	Any time it updates, mapStateToProps will be called.
+	Its result must be a plain object*,
+	and it will be merged into the component’s props
+
+	state in this case is store state, not a component state
+*/
+const mapStateToProps = (state) => {
+	return {
+		breadCrumbState: state.breadCrumbState
+	}
+}
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		onSpreadBreadCrumb: (menu) => {
+			dispatch(spreadBreadCrump(menu));
+		}
+	}
+}
+
 class LeftSideBar extends Component {
 	constructor (props, context) {
 		super(props, context);
@@ -28,6 +53,8 @@ class LeftSideBar extends Component {
 				}
 			]
 		};
+
+		this.setActiveMenuItem(this.context.appProps.location.pathname);
 	}
 
 	// receive context from App.js
@@ -39,29 +66,25 @@ class LeftSideBar extends Component {
 	// React passes the information down automatically
 	// and any component in the subtree
 	setActiveMenuItem = (menu) => {
-		this.setState({
-			activeMenu: menu
-		});
+		// this.setState({
+		// 	activeMenu: menu
+		// });
 
-		console.log(
-			"%csetActiveMenuItem",
-			"color: yellow; font-style: italic; background-color: blue;padding: 2px"
-		);
+		this.props.onSpreadBreadCrumb(menu);
 	}
 
 	static childContextTypes = {
-		setActiveMenuItem: PropTypes.func
+		setActiveMenuItem: PropTypes.func,
+		activeClass: PropTypes.string,
+		activeMenu: PropTypes.string
 	}
 
 	getChildContext () {
 		return {
-			setActiveMenuItem: this.setActiveMenuItem
+			setActiveMenuItem: this.setActiveMenuItem,
+			activeClass: this.state.activeClass,
+			// activeMenu: this.context.appProps.location.pathname
 		}
-	}
-
-	// This life cycle called before render()
-	componentWillMount () {
-		this.setActiveMenuItem(this.context.appProps.location.pathname);
 	}
 
 	render () {
@@ -77,24 +100,28 @@ class LeftSideBar extends Component {
 					<ul className="sidebar-menu">
 						<SingleMenu
 							title="Home"
-							activeMenu="/home">
+							redirect="/home"
+							activeMenu={this.props.breadCrumbState.breadcrumb}>
 						</SingleMenu>
 
 						<HeaderMenu title="Dashboard"></HeaderMenu>
 						<TreeViewMenu
 							title="Categories"
-							menus={this.state.menus}>
+							menus={this.state.menus}
+							activeMenu={this.props.breadCrumbState.breadcrumb}>
 						</TreeViewMenu>
 
 						<HeaderMenu title="Management"></HeaderMenu>
 						<SingleMenu
 							title="Product"
-							activeMenu="/product">
+							redirect="/product"
+							activeMenu={this.props.breadCrumbState.breadcrumb}>
 						</SingleMenu>
 
 						<SingleMenu
 							title="Todo"
-							activeMenu="/todo">
+							redirect="/todo"
+							activeMenu={this.props.breadCrumbState.breadcrumb}>
 						</SingleMenu>
 					</ul>
 				</section>
@@ -103,7 +130,8 @@ class LeftSideBar extends Component {
 	}
 }
 
-export default LeftSideBar;
+// export default LeftSideBar;
+export default connect(mapStateToProps, mapDispatchToProps)(LeftSideBar);
 
 /*
 	http://stackoverflow.com/questions/22461129/switch-class-on-tabs-with-react-js

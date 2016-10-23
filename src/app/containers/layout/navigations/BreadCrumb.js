@@ -18,7 +18,7 @@ class BreadCrum extends Component {
 		return (
 			<ol className="breadcrumb">
 				<li><a href="#"><i className="fa fa-dashboard"></i> Level</a></li>
-				<li className="active">{this.capitalize(this.props.activeComponent)}</li>
+				<li className="active">{this.props.activeComponent}</li>
 			</ol>
 		)
 	}
