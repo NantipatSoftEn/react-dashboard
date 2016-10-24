@@ -12,6 +12,7 @@ import SideBarToggleMenus from './navigations/SideBarToggleMenus';
 
 class Header extends Component {
 	render () {
+		console.log('header');
 		return (
 			<div>
 				<header className="main-header">

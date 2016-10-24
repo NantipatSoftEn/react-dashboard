@@ -51,10 +51,11 @@ class LeftSideBar extends Component {
 					title: 'React Life Cycle',
 					activeMenu: '/react-life-cycle'
 				}
-			]
+			],
+			golf: ''
 		};
 
-		this.setActiveMenuItem(this.context.appProps.location.pathname);
+		// this.setActiveMenuItem(this.context.appProps.location.pathname);
 	}
 
 	// receive context from App.js
@@ -62,14 +63,14 @@ class LeftSideBar extends Component {
 		appProps: PropTypes.object.isRequired
 	}
 
+	static propTypes = {
+		test: PropTypes.string
+	}
+
 	// By adding childContextTypes and getChildContext
 	// React passes the information down automatically
 	// and any component in the subtree
 	setActiveMenuItem = (menu) => {
-		// this.setState({
-		// 	activeMenu: menu
-		// });
-
 		this.props.onSpreadBreadCrumb(menu);
 	}
 
@@ -87,7 +88,21 @@ class LeftSideBar extends Component {
 		}
 	}
 
+	componentDidMount () {
+		this.setActiveMenuItem(this.props.test);
+		this.setState({golf: this.props.test});
+	}
+
+	componentWillReceiveProps (nextProps) {
+		console.log('componentWillReceiveProps');
+		console.log(nextProps);
+		this.setState({golf: nextProps.test});
+	}
+
 	render () {
+		// console.log('LeftSideBar');
+		// console.log(this.props.test);
+		console.log(this.state.golf);
 		return (
 			<aside className="main-sidebar">
 				<section className="sidebar">

@@ -12,13 +12,30 @@ import store from '../../store';
 
 import '../../sass/styles.scss';
 
+import { connect } from 'react-redux';
+import { spreadBreadCrump } from '../../actions/breadCrumbAction';
+
+const mapStateToProps = (state) => {
+	return {
+		breadCrumbState: state.breadCrumbState
+	}
+}
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		onSpreadBreadCrumb: (menu) => {
+			dispatch(spreadBreadCrump(menu));
+		}
+	}
+}
+
 class App extends Component {
 	constructor (props, context) {
 		super(props, context);
 
 		this.state = {
 			title: this.props.children.props.route.title,
-			subTitle: this.props.children.props.route.subTitle
+			pageDesc: this.props.children.props.route.pageDesc
 		}
 
 		document.title = this.props.children.props.route.title;
@@ -35,16 +52,17 @@ class App extends Component {
 	}
 
 	render() {
+		console.log(this.props.children.props.location.pathname);
 		return (
 			<div>
 				<Header />
 
-				<LeftSideBar></LeftSideBar>
+				<LeftSideBar test={this.props.children.props.location.pathname} />
 
 				<BodyWrapper
 					content={this.props.children}
 					pageHeader={this.state.title}
-					pageDesc={this.state.subTitle}>
+					pageDesc={this.state.pageDesc}>
 				</BodyWrapper>
 
 				<Footer />
@@ -57,4 +75,5 @@ class App extends Component {
 	}
 }
 
-export default App
+// export default App
+export default connect(mapStateToProps, mapDispatchToProps)(App);

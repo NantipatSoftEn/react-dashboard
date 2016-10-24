@@ -42,6 +42,7 @@ class BodyWrapper extends Component {
 	}
 
 	render () {
+		console.log('BodyWrapper');
 		return (
 			<div className="content-wrapper">
 				<section className="content-header">
