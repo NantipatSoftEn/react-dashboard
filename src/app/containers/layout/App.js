@@ -57,13 +57,13 @@ class App extends Component {
 			<div>
 				<Header />
 
-				<LeftSideBar test={this.props.children.props.location.pathname} />
+				<LeftSideBar
+					pathname={this.props.children.props.location.pathname} />
 
 				<BodyWrapper
 					content={this.props.children}
 					pageHeader={this.state.title}
-					pageDesc={this.state.pageDesc}>
-				</BodyWrapper>
+					pageDesc={this.state.pageDesc} />
 
 				<Footer />
 			</div>
@@ -75,5 +75,4 @@ class App extends Component {
 	}
 }
 
-// export default App
 export default connect(mapStateToProps, mapDispatchToProps)(App);
