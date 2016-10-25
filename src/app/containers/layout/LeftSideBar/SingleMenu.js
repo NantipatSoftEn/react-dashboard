@@ -18,8 +18,7 @@ class SingleMenu extends Component {
 	static contextTypes = {
 		appProps: PropTypes.object.isRequired,	// App.js
 		setActiveMenuItem: PropTypes.func,	// LeftSideBar.js
-		activeClass: PropTypes.string,
-		// activeMenu: PropTypes.string
+		activeClass: PropTypes.string
 	}
 
 	render () {
