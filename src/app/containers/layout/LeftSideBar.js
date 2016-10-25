@@ -54,11 +54,11 @@ class LeftSideBar extends Component {
 				{
 					id: 0,
 					title: 'Easy Redux',
-					activeMenu: "/easy-redux"
+					redirect: "/easy-redux"
 				} , {
 					id: 1,
 					title: 'React Life Cycle',
-					activeMenu: '/react-life-cycle'
+					redirect: '/react-life-cycle'
 				}
 			],
 			pathname: this.props.pathname
