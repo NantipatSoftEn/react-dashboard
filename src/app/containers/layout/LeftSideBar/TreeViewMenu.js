@@ -14,7 +14,8 @@ class TreeViewMenu extends Component {
 
 	static propType = {
 		title: PropTypes.title,
-		menus: PropTypes.array
+		menus: PropTypes.array,
+		activeMenu: PropTypes.string
 	}
 
 	// receive context
@@ -27,12 +28,12 @@ class TreeViewMenu extends Component {
 		Check current route with array menu
 		if match, it should toggle tree menu
 	*/
-	onActiveTreeMenu (currentRoute) {
+	onActiveTreeMenu (currentRoute = this.props.activeMenu) {
 		let match = [];
 		this.state.menus.forEach(
 			(menu) => {
-				if (currentRoute === menu.activeMenu) {
-					match.push(menu.activeMenu);
+				if (currentRoute === menu.redirect) {
+					match.push(menu.redirect);
 				}
 			}
 		);
@@ -50,7 +51,7 @@ class TreeViewMenu extends Component {
 			}
 		};
 
-		let currentRoute = this.context.appProps.location.pathname;
+		let currentRoute = this.props.activeMenu;
 
 		return (
 			<li className="treeview">
@@ -63,7 +64,8 @@ class TreeViewMenu extends Component {
 							<SingleMenu
 								key={menu.id}
 								title={menu.title}
-								activeMenu={menu.activeMenu}>
+								redirect={menu.redirect}
+								activeMenu={currentRoute}>
 							</SingleMenu>
 						)
 					)}
