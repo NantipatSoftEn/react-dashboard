@@ -35,6 +35,15 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class LeftSideBar extends Component {
+	// receive context from App.js
+	static contextTypes = {
+		appProps: PropTypes.object.isRequired
+	}
+
+	static propTypes = {
+		pathname: PropTypes.string
+	}
+
 	constructor (props, context) {
 		super(props, context);
 		this.state = {
@@ -52,19 +61,8 @@ class LeftSideBar extends Component {
 					activeMenu: '/react-life-cycle'
 				}
 			],
-			golf: ''
+			pathname: this.props.pathname
 		};
-
-		// this.setActiveMenuItem(this.context.appProps.location.pathname);
-	}
-
-	// receive context from App.js
-	static contextTypes = {
-		appProps: PropTypes.object.isRequired
-	}
-
-	static propTypes = {
-		test: PropTypes.string
 	}
 
 	// By adding childContextTypes and getChildContext
@@ -83,26 +81,15 @@ class LeftSideBar extends Component {
 	getChildContext () {
 		return {
 			setActiveMenuItem: this.setActiveMenuItem,
-			activeClass: this.state.activeClass,
-			// activeMenu: this.context.appProps.location.pathname
+			activeClass: this.state.activeClass
 		}
 	}
 
-	componentDidMount () {
-		this.setActiveMenuItem(this.props.test);
-		this.setState({golf: this.props.test});
-	}
-
 	componentWillReceiveProps (nextProps) {
-		console.log('componentWillReceiveProps');
-		console.log(nextProps);
-		this.setState({golf: nextProps.test});
+		this.setState({pathname: nextProps.pathname});
 	}
 
 	render () {
-		// console.log('LeftSideBar');
-		// console.log(this.props.test);
-		console.log(this.state.golf);
 		return (
 			<aside className="main-sidebar">
 				<section className="sidebar">
@@ -116,32 +103,37 @@ class LeftSideBar extends Component {
 						<SingleMenu
 							title="Home"
 							redirect="/home"
-							activeMenu={this.props.breadCrumbState.breadcrumb}>
+							activeMenu={this.state.pathname}>
 						</SingleMenu>
 
 						<HeaderMenu title="Dashboard"></HeaderMenu>
 						<TreeViewMenu
 							title="Categories"
 							menus={this.state.menus}
-							activeMenu={this.props.breadCrumbState.breadcrumb}>
+							activeMenu={this.state.pathname}>
 						</TreeViewMenu>
 
 						<HeaderMenu title="Management"></HeaderMenu>
 						<SingleMenu
 							title="Product"
 							redirect="/product"
-							activeMenu={this.props.breadCrumbState.breadcrumb}>
+							activeMenu={this.state.pathname}>
 						</SingleMenu>
 
 						<SingleMenu
 							title="Todo"
 							redirect="/todo"
-							activeMenu={this.props.breadCrumbState.breadcrumb}>
+							activeMenu={this.state.pathname}>
 						</SingleMenu>
 					</ul>
 				</section>
 			</aside>
 		)
+	}
+
+	componentDidMount () {
+		this.setActiveMenuItem(this.props.pathname);
+		this.setState({pathname: this.props.pathname});
 	}
 }
 
