@@ -6,6 +6,8 @@ import LeftSideBar from './LeftSideBar';
 import BodyWrapper from './BodyWrapper';
 import Footer from './Footer';
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 // Redux
 import { Provider } from 'react-redux';
 import store from '../../store';
@@ -52,21 +54,22 @@ class App extends Component {
 	}
 
 	render() {
-		console.log(this.props.children.props.location.pathname);
 		return (
-			<div>
-				<Header />
+			<MuiThemeProvider>
+				<div>
+					<Header />
 
-				<LeftSideBar
-					pathname={this.props.children.props.location.pathname} />
+					<LeftSideBar
+						pathname={this.props.children.props.location.pathname} />
 
-				<BodyWrapper
-					content={this.props.children}
-					pageHeader={this.state.title}
-					pageDesc={this.state.pageDesc} />
+					<BodyWrapper
+						content={this.props.children}
+						pageHeader={this.state.title}
+						pageDesc={this.state.pageDesc} />
 
-				<Footer />
-			</div>
+					<Footer />
+				</div>	
+			</MuiThemeProvider>
 		)
 	}
 
