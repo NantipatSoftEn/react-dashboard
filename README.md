@@ -16,7 +16,14 @@ Golf's has created this repository for creating the dashboard tool that supports
 9. [Fontawesome.io](http://fontawesome.io/) / [Ionicons](http://ionicons.com/)
 
 # Installation
-...
+## Prerequisite
+1. Node.js latest version or above 6.0.x
+2. MongoDB
+3. Run initial database script
+```xml
+-> open command line
+-> run this command node 01_...js
+```
 
 # Configuration
 ....
