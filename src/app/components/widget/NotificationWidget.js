@@ -4,13 +4,17 @@ import { render } from 'react-dom';
 class NotificationWidget extends Component {
 	constructor (props, context) {
 		super(props, context);
+		this.state = {
+			linkLabel: 'More info'
+		}
 	}
 
 	static propTypes = {
 		count: PropTypes.string,
 		label: PropTypes.string,
 		stylesheet: PropTypes.string,
-		icon: PropTypes.string
+		icon: PropTypes.string,
+		redirect: PropTypes.string
 	}
 
 	render () {
@@ -24,8 +28,8 @@ class NotificationWidget extends Component {
 					<div className="icon">
 						<i className={this.props.icon}></i>
 					</div>
-					<a href="#" className="small-box-footer">
-						More info <i className="fa fa-arrow-circle-right"></i>
+					<a href={this.props.redirect} className="small-box-footer">
+						{this.state.linkLabel} <i className="fa fa-arrow-circle-right"></i>
 					</a>
 				</div>
 			</div>

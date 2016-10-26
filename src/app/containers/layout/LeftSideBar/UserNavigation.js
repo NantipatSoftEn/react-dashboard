@@ -6,7 +6,7 @@ class UserNavigation extends Component {
 		return (
 			<div className="user-panel">
 				<div className="pull-left image">
-					<img src="public/images/golf.jpg" className="img-circle" alt="User Image" />
+					<img src="/public/images/golf.jpg" className="img-circle" alt="User Image" />
 				</div>
 				<div className="pull-left info">
 					<p>Teerapong Singthong</p>

@@ -42,7 +42,7 @@ class Item extends Component {
                         </div>
                         <div className="pull-right">
                             <a className="btn btn-default btn-sm edit-btn"
-                                href="#/product/detail/99"
+                                href="/product/detail/99"
                                 role="button">
                                     Edit
                             </a>
