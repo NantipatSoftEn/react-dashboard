@@ -6,6 +6,9 @@ import LeftSideBar from './LeftSideBar';
 import BodyWrapper from './BodyWrapper';
 import Footer from './Footer';
 
+import Snackbar from 'material-ui/Snackbar';
+import RaisedButton from 'material-ui/RaisedButton';
+
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 // Redux
@@ -37,19 +40,47 @@ class App extends Component {
 
 		this.state = {
 			title: this.props.children.props.route.title,
-			pageDesc: this.props.children.props.route.pageDesc
+			pageDesc: this.props.children.props.route.pageDesc,
+			snackBar: {
+				open: false,
+				message: ''
+			},
 		}
 
 		document.title = this.props.children.props.route.title;
 	}
 
+	snackBar () {
+		return 'snack bar called';
+	}
+
+	/* Snackbar function */
+	handleTouchTap = (message) => {
+		this.setState({
+			snackBar: {
+				open: true,
+				message: message
+			},
+		});
+	};
+
+	handleRequestClose = () => {
+		this.setState({
+			snackBar: {
+				open: false
+			},
+		});
+	};
+
 	static childContextTypes = {
-		appProps: PropTypes.object.isRequired
+		appProps: PropTypes.object.isRequired,
+		snackBar: PropTypes.func
 	}
 
 	getChildContext () {
 		return {
-			appProps: this.props
+			appProps: this.props,
+			snackBar: this.handleTouchTap
 		}
 	}
 
@@ -68,7 +99,14 @@ class App extends Component {
 						pageDesc={this.state.pageDesc} />
 
 					<Footer />
-				</div>	
+
+					<Snackbar
+						open={this.state.snackBar.open}
+						message={this.state.snackBar.message}
+						autoHideDuration={4000}
+						onRequestClose={this.handleRequestClose}/>
+
+				</div>
 			</MuiThemeProvider>
 		)
 	}
