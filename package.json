@@ -4,7 +4,7 @@
   "description": "Personal music categorize and management tools that developing on ReactJS ecosystem",
   "main": "index.js",
   "scripts": {
-    "start:dev": "webpack-dev-server --inline --progress --colors --hot --config ./config/webpack.config.js",
+    "start:dev": "webpack-dev-server --inline --progress --colors --hot --content-base . --history-api-fallback --config ./config/webpack.config.js",
 	"start:server": "nodemon src/app/server/server.js --exec babel-node --presets es2015,stage-2",
     "start:db": "mongod",
     "version:major": "npm version major",
