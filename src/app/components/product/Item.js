@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { render } from 'react-dom';
+import { Link } from 'react-router';
 
 // Material-UI
 import Avatar from 'material-ui/Avatar';
@@ -40,10 +41,11 @@ class Item extends Component {
                             </h4>
                         </div>
                         <div className="pull-right">
-                            <button type="button"
-                                className="btn edit-btn btn-primary btn-xs">
-                                Edit
-                            </button>
+                            <a className="btn btn-default btn-sm edit-btn"
+                                href="#/product/detail/99"
+                                role="button">
+                                    Edit
+                            </a>
                         </div>
 
                         <div className="clearfix"></div>
