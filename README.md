@@ -27,3 +27,6 @@ Golf's has created this repository for creating the dashboard tool that supports
 
 # Configuration
 ....
+
+# Screenshot
+![Image of dashboard](https://raw.githubusercontent.com/iamgoangle/react-dashboard/master/public/git/screenshot-01.png)
