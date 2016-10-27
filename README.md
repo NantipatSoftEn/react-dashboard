@@ -35,6 +35,6 @@ Golf's has created this repository for creating the dashboard tool that supports
 ![Image of dashboard](https://raw.githubusercontent.com/iamgoangle/react-dashboard/master/public/git/screenshot-01.png)
 
 ### Component testing supported
-![Image of testing](https://raw.githubusercontent.com/iamgoangle/react-dashboard/master/public/git/screenshot-03.png)
+![Image of testing](https://raw.githubusercontent.com/iamgoangle/react-dashboard/edefce1a528b0b0d3c0e163bdedd1555e76d8486/public/git/screenshot-02.png)
 
-![Image of testing](https://raw.githubusercontent.com/iamgoangle/react-dashboard/master/public/git/screenshot-02.png)
+![Image of testing](https://raw.githubusercontent.com/iamgoangle/react-dashboard/e9c98163b49cd86477f71d71da48f51225b04692/public/git/screenshot-03.png)
