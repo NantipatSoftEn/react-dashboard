@@ -27,7 +27,17 @@ class Home extends Component {
 					icon: 'ion ion-person-add',
 					stylesheet: 'small-box bg-yellow'
 				}
-			}
+			},
+			products: [
+				{
+					id: 1,
+					title: 'iPhone7 Plus 32Gb',
+					desc: 'Oh my god smart phone',
+					thumbnail: '/public/images/default-50x50.gif',
+					price: '31,500',
+					currency: '฿',
+				}
+			]
 		}
 	}
 
@@ -66,7 +76,14 @@ class Home extends Component {
 				</div>
 
 				<div className="row">
-					<BoxWidget></BoxWidget>
+					<BoxWidget
+						title="Recently Added Products"
+						minimize={false}
+						close={true}
+						textLink="View all products"
+						redirect="/product"
+						products={this.state.products}>
+					</BoxWidget>
 
 					<InfoBox
 						icon="ion ion-ios-gear-outline"
@@ -95,7 +112,9 @@ class Home extends Component {
 						label="CPU Usage"
 						percent="98">
 					</InfoBox>
+				</div>
 
+				<div className="row">
 					<InfoBoxAdvance
 						icon="ion ion-ios-cloud-download-outline"
 						stylesheet="info-box-icon bg-red"

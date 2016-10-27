@@ -21,9 +21,8 @@ class InfoBoxAdvance extends Component {
 	}
 
 	render () {
-		console.log(this.props);
 		return (
-			<div className="col-md-4">
+			<div className="col-md-6">
 				<div className="info-box bg-yellow">
 					<span className="info-box-icon">
 						<i className="ion ion-ios-pricetag-outline"></i>

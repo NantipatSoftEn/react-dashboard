@@ -9,47 +9,79 @@ class BoxWidget extends Component {
 		}
 	}
 
+	static propTypes = {
+		title: PropTypes.string.isRequired,
+		minimize: PropTypes.bool,
+		close: PropTypes.bool,
+		textLink: PropTypes.string,
+		redirect: PropTypes.string,
+		products: PropTypes.array
+	}
+
 	render () {
+		const minimizeButton = (
+			<button type="button"
+				className="btn btn-box-tool"
+				data-widget="collapse">
+				<i className="fa fa-minus"></i>
+			</button>
+		);
+
+		const closeButton = (
+			<button type="button"
+				className="btn btn-box-tool"
+				data-widget="remove">
+				<i className="fa fa-times"></i>
+			</button>
+		);
+
 		return (
 			<div className="col-lg-6 col-md-6 col-xs-12">
 				<div className="box box-primary">
 					<div className="box-header with-border">
-						<h3 className="box-title">Recently Added Products</h3>
+						<h3 className="box-title">
+							{this.props.title}
+						</h3>
+						{/* <!-- /. End title --> */}
 
 						<div className="box-tools pull-right">
-							<button type="button"
-								className="btn btn-box-tool"
-								data-widget="collapse">
-								<i className="fa fa-minus"></i>
-							</button>
-
-							<button type="button"
-								className="btn btn-box-tool"
-								data-widget="remove">
-								<i className="fa fa-times"></i>
-							</button>
+							{this.props.minimize && minimizeButton}
+							{this.props.close && closeButton}
 						</div>
+						{/* <!-- /. End button --> */}
 					</div>
 
 					<div className="box-body">
 						<ul className="products-list product-list-in-box">
-							<li className="item">
-								<div className="product-img">
-									<img src="/public/images/default-50x50.gif" alt="Product Image" />
-								</div>
-								<div className="product-info">
-									<a href="javascript:void(0)" className="product-title">Samsung TV
-										<span className="label label-warning pull-right">$1800</span>
-									</a>
-									<span className="product-description">
-										Samsung 49 Inch
-									</span>
-								</div>
-							</li>
+							{
+								this.props.products.map(
+									(product) => (
+										<li className="item" key={this.props.id}>
+											<div className="product-img">
+												<img src={product.thumbnail}
+													alt={product.desc} />
+											</div>
+											<div className="product-info">
+												<a href="javascript:void(0)" className="product-title">
+													{product.title}
+													<span className="label label-warning pull-right">
+														{product.currency}{product.price}
+													</span>
+												</a>
+												<span className="product-description">
+													{product.desc}
+												</span>
+											</div>
+										</li>
+									)
+								)
+							}
 						</ul>
 					</div>
 					<div className="box-footer text-center">
-						<a href="javascript:void(0)" className="uppercase">View All Products</a>
+						<a href="javascript:void(0)" className="uppercase">
+							{this.props.textLink}
+						</a>
 					</div>
 				</div>
 			</div>
