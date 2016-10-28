@@ -47,10 +47,9 @@ npm run mocha
 ![Image of testing](https://raw.githubusercontent.com/iamgoangle/react-dashboard/e9c98163b49cd86477f71d71da48f51225b04692/public/git/screenshot-03.png)
 
 ### Responsive view supported
-|
 ![Image of testing](https://raw.githubusercontent.com/iamgoangle/react-dashboard/6d5980579e71f6c1343f85ad09d2f1904b5ab8d0/public/git/responsive-supported.png)
-|
+
 ![Image of testing](https://raw.githubusercontent.com/iamgoangle/react-dashboard/6d5980579e71f6c1343f85ad09d2f1904b5ab8d0/public/git/responsive-supported-2.png)
-|
+
 
 Special thanks @Abdullah Almsaeed for awesome theme and inspiration.
