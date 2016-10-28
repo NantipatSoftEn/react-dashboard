@@ -9,6 +9,8 @@ import InfoBoxAdvance from '../../components/widget/InfoBoxAdvance';
 class Home extends Component {
 	constructor (props, context) {
 		super(props, context);
+
+		/* TODO: Once this application connected with data, I will point this state to database instead */
 		this.state = {
 			style: {
 				product: {
@@ -36,6 +38,44 @@ class Home extends Component {
 					thumbnail: '/public/images/default-50x50.gif',
 					price: '31,500',
 					currency: '฿',
+				},
+				{
+					id: 2,
+					title: 'Samsung Galaxy Note 7',
+					desc: 'This a grenade',
+					thumbnail: '/public/images/default-50x50.gif',
+					price: 'Free',
+					currency: '฿'
+				}
+			],
+			infoBoxs: [
+				{
+					id: 1,
+					icon: "ion ion-ios-gear-outline",
+					stylesheet: "info-box-icon bg-aqua",
+					label: "Database Usage",
+					percent: "15"
+				},
+				{
+					id: 2,
+					icon: "ion ion-ios-pricetag-outline",
+					stylesheet: "info-box-icon bg-yellow",
+					label: "Warehouse Usage",
+					percent: "44"
+				},
+				{
+					id: 3,
+					icon: "ion ion-ios-heart-outline",
+					stylesheet: "info-box-icon bg-green",
+					label: "User feedback",
+					percent: "90"
+				},
+				{
+					id: 4,
+					icon:"ion ion-ios-cloud-download-outline",
+					stylesheet:"info-box-icon bg-red",
+					label:"CPU Usage",
+					percent:"98"
 				}
 			]
 		}
@@ -86,31 +126,7 @@ class Home extends Component {
 					</BoxWidget>
 
 					<InfoBox
-						icon="ion ion-ios-gear-outline"
-						stylesheet="info-box-icon bg-aqua"
-						label="Database Usage"
-						percent="15">
-					</InfoBox>
-
-					<InfoBox
-						icon="ion ion-ios-pricetag-outline"
-						stylesheet="info-box-icon bg-yellow"
-						label="Warehouse Usage"
-						percent="44">
-					</InfoBox>
-
-					<InfoBox
-						icon="ion ion-ios-heart-outline"
-						stylesheet="info-box-icon bg-green"
-						label="User feedback"
-						percent="90">
-					</InfoBox>
-
-					<InfoBox
-						icon="ion ion-ios-cloud-download-outline"
-						stylesheet="info-box-icon bg-red"
-						label="CPU Usage"
-						percent="98">
+						datas={this.state.infoBoxs}>
 					</InfoBox>
 				</div>
 
