@@ -10,26 +10,31 @@ class InfoBox extends Component {
 	}
 
 	static propTypes = {
-		icon: PropTypes.string,
-		stylesheet: PropTypes.string,
-		label: PropTypes.string,
-		percent: PropTypes.string
+		datas: PropTypes.array
 	}
 
 	render () {
-		return (
-			<div className="col-md-3 col-sm-6 col-xs-12">
+		const infoBoxItem = (infoBox) => (
+			<div className="col-md-3 col-sm-6 col-xs-12" key={infoBox.id}>
 				<div className="info-box">
-					<span className={this.props.stylesheet}>
-						<i className={this.props.icon}></i>
+					<span className={infoBox.stylesheet}>
+						<i className={infoBox.icon}></i>
 					</span>
 					<div className="info-box-content">
-						<span className="info-box-text">{this.props.label}</span>
+						<span className="info-box-text">{infoBox.label}</span>
 						<span className="info-box-number">
-							{this.props.percent}<small>%</small>
+							{infoBox.percent}<small>%</small>
 						</span>
 					</div>
 				</div>
+			</div>
+		);
+
+		return (
+			<div>
+				{
+					this.props.datas.map( infoBox => infoBoxItem(infoBox) )
+				}
 			</div>
 		)
 	}

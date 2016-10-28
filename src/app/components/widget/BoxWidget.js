@@ -35,6 +35,27 @@ class BoxWidget extends Component {
 			</button>
 		);
 
+		{/* <!-- Awesome JSX feature that supports initialize --> */}
+		const renderItem = (product) => (
+			<li className="item" key={product.id}>
+				<div className="product-img">
+					<img src={product.thumbnail}
+						alt={product.desc} />
+				</div>
+				<div className="product-info">
+					<a href="javascript:void(0)" className="product-title">
+						{product.title}
+						<span className="label label-warning pull-right">
+							{product.currency}{product.price}
+						</span>
+					</a>
+					<span className="product-description">
+						{product.desc}
+					</span>
+				</div>
+			</li>
+		);
+
 		return (
 			<div className="col-lg-6 col-md-6 col-xs-12">
 				<div className="box box-primary">
@@ -54,30 +75,12 @@ class BoxWidget extends Component {
 					<div className="box-body">
 						<ul className="products-list product-list-in-box">
 							{
-								this.props.products.map(
-									(product) => (
-										<li className="item" key={this.props.id}>
-											<div className="product-img">
-												<img src={product.thumbnail}
-													alt={product.desc} />
-											</div>
-											<div className="product-info">
-												<a href="javascript:void(0)" className="product-title">
-													{product.title}
-													<span className="label label-warning pull-right">
-														{product.currency}{product.price}
-													</span>
-												</a>
-												<span className="product-description">
-													{product.desc}
-												</span>
-											</div>
-										</li>
-									)
-								)
+								this.props.products.map( product => renderItem(product) )
 							}
 						</ul>
 					</div>
+					{ /* <!-- /. End render products --> */}
+
 					<div className="box-footer text-center">
 						<a href="javascript:void(0)" className="uppercase">
 							{this.props.textLink}
