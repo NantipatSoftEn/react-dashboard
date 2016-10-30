@@ -107,6 +107,12 @@ class LeftSideBar extends Component {
 						</SingleMenu>
 
 						<HeaderMenu title="Dashboard"></HeaderMenu>
+						<SingleMenu
+							title="Chart"
+							redirect="/dashboard/chart"
+							activeMenu={this.state.pathname}
+							icon="fa fa-pie-chart">
+						</SingleMenu>
 						<TreeViewMenu
 							title="Categories"
 							menus={this.state.menus}

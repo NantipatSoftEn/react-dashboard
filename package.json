@@ -1,7 +1,7 @@
 {
-  "name": "reach-musik",
+  "name": "reach-dashboard",
   "version": "1.0.0",
-  "description": "Personal music categorize and management tools that developing on ReactJS ecosystem",
+  "description": "Build from Reactjs dashboard system that willingly help you to track your information and get valuable resources",
   "main": "index.js",
   "scripts": {
     "mocha": "mocha test/.setup.js test/**/*-test.js",

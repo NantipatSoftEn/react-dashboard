@@ -22,7 +22,7 @@ module.exports = {
 		port: 3030
 	},
 	output: {
-		// publicPath: '/dist/',
+		 publicPath: '/',
 		path: BUNDLE_DIR,
 		filename: '[name].bundle.js'
 	},

@@ -11,7 +11,8 @@ class SingleMenu extends Component {
 	static propType = {
 		redirect: PropTypes.string.isRequired,
 		title: PropTypes.string.isRequired,
-		activeMenu: PropTypes.string
+		activeMenu: PropTypes.string,
+		icon: PropTypes.string
 	}
 
 	// receive context
@@ -22,11 +23,12 @@ class SingleMenu extends Component {
 	}
 
 	render () {
+		const icon = (typeof(this.props.icon) === 'undefined') ? 'fa fa-link' : this.props.icon;
 		return (
 			<li onClick={() => this.context.setActiveMenuItem(this.props.redirect)}
 				className={(this.props.activeMenu === this.props.redirect) ? this.context.activeClass : ''}>
 				<NavLink to={this.props.redirect}>
-					<i className="fa fa-link"></i>
+					<i className={icon}></i>
 					<span>{this.props.title}</span>
 				</NavLink>
 			</li>

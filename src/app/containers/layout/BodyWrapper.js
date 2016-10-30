@@ -26,8 +26,6 @@ class BodyWrapper extends Component {
 		this.state = {
 			pathname: this.props.content.props.location.pathname
 		}
-
-		// this.props.onGetBreadCrumb();
 	}
 
 	static propTypes: {

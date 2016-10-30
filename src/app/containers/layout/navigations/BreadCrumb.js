@@ -14,11 +14,16 @@ class BreadCrum extends Component {
 		return str.substr(0, 2).toUpperCase() + str.substr(2);
 	}
 
+	cleanBreadCrumb (str) {
+		const activeStr = str;
+		return activeStr.replace(/\//g, " > ").substr(3);
+	}
+
 	render () {
 		return (
 			<ol className="breadcrumb">
 				<li><a href="#"><i className="fa fa-dashboard"></i> Level</a></li>
-				<li className="active">{this.props.activeComponent}</li>
+				<li className="active">{this.cleanBreadCrumb(this.props.activeComponent)}</li>
 			</ol>
 		)
 	}

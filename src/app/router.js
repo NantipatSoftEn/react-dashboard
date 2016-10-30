@@ -11,6 +11,8 @@ import Product from './containers/pages/Product';
 import EasyRedux from './containers/pages/EasyRedux';
 import ReactLifeCycle from './containers/pages/ReactLifeCycle';
 
+import Chart from './containers/pages/Chart';
+
 // Forced redirect to home component
 export default (
 	<Router history={browserHistory}>
@@ -28,6 +30,9 @@ export default (
 			<Route path='product'
 				component={Product}
 				title="Product | Add product to cart" />
+			<Route path='dashboard/chart'
+				component={Chart}
+				title="Chart | Chart summary" />
 			<Route path='easy-redux'
 				component={EasyRedux}
 				title="Easy Redux | To learn easy redux from simple file" />
