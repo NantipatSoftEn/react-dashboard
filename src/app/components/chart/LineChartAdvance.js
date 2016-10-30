@@ -11,7 +11,7 @@ class LineChartAdvance extends Component {
 
 	render () {
 		return (
-			<div className="col-md-5">
+			<div className="col-lg-5 col-md-5">
 				<div className="box box-solid bg-teal-gradient">
 					<div className="box-header">
 						<i className="fa fa-th"></i>

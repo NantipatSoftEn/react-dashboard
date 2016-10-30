@@ -19,6 +19,7 @@ Golf's has created this repository for creating the dashboard tool that supports
 # Chart Stacks
 1. [Knob](http://anthonyterrien.com/demo/knob/)
 2. [Morris](http://morrisjs.github.io/morris.js/)
+3. [ChartJS](http://www.chartjs.org/)
 
 # Installation
 ## Prerequisite
