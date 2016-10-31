@@ -40,7 +40,9 @@ Golf's has created this repository for creating the dashboard tool that supports
 ```
 npm run start:dev
 ```
-![Image of dashboard](https://raw.githubusercontent.com/iamgoangle/react-dashboard/master/public/git/screenshot-01.png)
+![Image of dashboard](https://raw.githubusercontent.com/iamgoangle/react-dashboard/5e8e543ce5f3e9eec1b63ae1d200e1e2f60dbe6c/public/git/screenshot-01.png)
+
+![Image of dashboard](https://raw.githubusercontent.com/iamgoangle/react-dashboard/5e8e543ce5f3e9eec1b63ae1d200e1e2f60dbe6c/public/git/chart-summary.png)
 
 ### Component testing supported
 ```javascript
@@ -52,9 +54,9 @@ npm run mocha
 ![Image of testing](https://raw.githubusercontent.com/iamgoangle/react-dashboard/e9c98163b49cd86477f71d71da48f51225b04692/public/git/screenshot-03.png)
 
 ### Responsive view supported
-![Image of testing](https://raw.githubusercontent.com/iamgoangle/react-dashboard/6d5980579e71f6c1343f85ad09d2f1904b5ab8d0/public/git/responsive-supported.png)
+![Image of testing](https://raw.githubusercontent.com/iamgoangle/react-dashboard/5e8e543ce5f3e9eec1b63ae1d200e1e2f60dbe6c/public/git/responsive-supported-3.png)
 
-![Image of testing](https://raw.githubusercontent.com/iamgoangle/react-dashboard/6d5980579e71f6c1343f85ad09d2f1904b5ab8d0/public/git/responsive-supported-2.png)
+[more...](https://github.com/iamgoangle/react-dashboard/tree/master/public/git)
 
 
 Special thanks @Abdullah Almsaeed for awesome theme and inspiration.
