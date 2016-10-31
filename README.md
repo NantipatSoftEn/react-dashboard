@@ -44,6 +44,9 @@ npm run start:dev
 
 ![Image of dashboard](https://raw.githubusercontent.com/iamgoangle/react-dashboard/5e8e543ce5f3e9eec1b63ae1d200e1e2f60dbe6c/public/git/chart-summary.png)
 
+### Dragable Component
+![Dragable](https://raw.githubusercontent.com/iamgoangle/react-dashboard/master/public/git/dragable-component.png)
+
 ### Component testing supported
 ```javascript
 npm run mocha
