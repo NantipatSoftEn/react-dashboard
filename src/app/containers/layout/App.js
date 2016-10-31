@@ -87,7 +87,7 @@ class App extends Component {
 	render() {
 		return (
 			<MuiThemeProvider>
-				<div>
+				<div className="wrapper">
 					<Header />
 
 					<LeftSideBar

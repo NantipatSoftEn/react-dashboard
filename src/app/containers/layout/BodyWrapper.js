@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { render } from 'react-dom';
 
-import BreadCrumb from './navigations/BreadCrumb';
+import BreadCrumb from './Navigations/BreadCrumb';
 
 import { connect } from 'react-redux';
 import { spreadBreadCrump, getBreadCrumb } from '../../actions/breadCrumbAction';

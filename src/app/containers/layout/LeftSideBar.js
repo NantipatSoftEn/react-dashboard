@@ -50,14 +50,14 @@ class LeftSideBar extends Component {
 			activeMenu: '/',
 			activeClassTree: 'active treeview',
 			activeClass: 'active',
-			menus: [
+			productMenus: [
 				{
 					id: 0,
-					title: 'Easy Redux',
-					redirect: "/easy-redux"
+					title: 'All product',
+					redirect: "/product"
 				} , {
 					id: 1,
-					title: 'React Life Cycle',
+					title: 'Add new product',
 					redirect: '/react-life-cycle'
 				}
 			],
@@ -113,21 +113,43 @@ class LeftSideBar extends Component {
 							activeMenu={this.state.pathname}
 							icon="fa fa-pie-chart">
 						</SingleMenu>
+
+						<HeaderMenu title="Management"></HeaderMenu>
 						<TreeViewMenu
-							title="Categories"
-							menus={this.state.menus}
+							title="Product"
+							icon=""
+							menus={this.state.productMenus}
 							activeMenu={this.state.pathname}>
 						</TreeViewMenu>
 
-						<HeaderMenu title="Management"></HeaderMenu>
 						<SingleMenu
-							title="Product"
-							redirect="/product"
+							title="User"
+							redirect="/todo"
+							activeMenu={this.state.pathname}>
+						</SingleMenu>
+
+						<HeaderMenu title="Configuration"></HeaderMenu>
+						<SingleMenu
+							title="Web Appearance"
+							redirect="/todo"
 							activeMenu={this.state.pathname}>
 						</SingleMenu>
 
 						<SingleMenu
-							title="Todo"
+							title="Database"
+							redirect="/todo"
+							activeMenu={this.state.pathname}>
+						</SingleMenu>
+
+						<SingleMenu
+							title="Server"
+							redirect="/todo"
+							activeMenu={this.state.pathname}>
+						</SingleMenu>
+
+						<HeaderMenu title="Landing Page"></HeaderMenu>
+						<SingleMenu
+							title="Back to landing page"
 							redirect="/todo"
 							activeMenu={this.state.pathname}>
 						</SingleMenu>

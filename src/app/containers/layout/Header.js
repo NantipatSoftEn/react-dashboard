@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import NavLink from './NavLink';
 
-import Logo from './navigations/Logo';
-import SideBarToggleMenus from './navigations/SideBarToggleMenus';
+import Logo from './Navigations/Logo';
+import SideBarToggleMenus from './Navigations/SideBarToggleMenus';
 
 class Header extends Component {
 	render () {
