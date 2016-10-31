@@ -14,6 +14,7 @@ class TreeViewMenu extends Component {
 
 	static propType = {
 		title: PropTypes.title,
+		icon: PropTypes.string,
 		menus: PropTypes.array,
 		activeMenu: PropTypes.string
 	}
@@ -55,7 +56,9 @@ class TreeViewMenu extends Component {
 
 		return (
 			<li className="treeview">
-				<HeaderTreeViewMenu title={this.props.title}>
+				<HeaderTreeViewMenu 
+					title={this.props.title}
+					icon={this.props.icon}>
 				</HeaderTreeViewMenu>
 
 				<ul className="treeview-menu" style={this.onActiveTreeMenu(currentRoute) ? style.show : style.hide}>

@@ -102,6 +102,7 @@ class LeftSideBar extends Component {
 					<ul className="sidebar-menu">
 						<SingleMenu
 							title="Home"
+							icon="fa fa-connectdevelop"
 							redirect="/home"
 							activeMenu={this.state.pathname}>
 						</SingleMenu>
@@ -117,13 +118,14 @@ class LeftSideBar extends Component {
 						<HeaderMenu title="Management"></HeaderMenu>
 						<TreeViewMenu
 							title="Product"
-							icon=""
+							icon="fa fa-shopping-basket"
 							menus={this.state.productMenus}
 							activeMenu={this.state.pathname}>
 						</TreeViewMenu>
 
 						<SingleMenu
 							title="User"
+							icon="fa fa-users"
 							redirect="/todo"
 							activeMenu={this.state.pathname}>
 						</SingleMenu>
@@ -131,18 +133,21 @@ class LeftSideBar extends Component {
 						<HeaderMenu title="Configuration"></HeaderMenu>
 						<SingleMenu
 							title="Web Appearance"
+							icon="fa fa-sun-o"
 							redirect="/todo"
 							activeMenu={this.state.pathname}>
 						</SingleMenu>
 
 						<SingleMenu
 							title="Database"
+							icon="fa fa-database"
 							redirect="/todo"
 							activeMenu={this.state.pathname}>
 						</SingleMenu>
 
 						<SingleMenu
 							title="Server"
+							icon="fa fa-cogs"
 							redirect="/todo"
 							activeMenu={this.state.pathname}>
 						</SingleMenu>
@@ -150,6 +155,7 @@ class LeftSideBar extends Component {
 						<HeaderMenu title="Landing Page"></HeaderMenu>
 						<SingleMenu
 							title="Back to landing page"
+							icon="fa fa-home"
 							redirect="/todo"
 							activeMenu={this.state.pathname}>
 						</SingleMenu>

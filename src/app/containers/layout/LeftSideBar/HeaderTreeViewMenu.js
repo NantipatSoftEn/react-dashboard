@@ -7,13 +7,14 @@ class HeaderTreeViewMenu extends Component {
 	}
 
 	static propType = {
-		title: PropTypes.string.isRequired
+		title: PropTypes.string.isRequired,
+		icon: PropTypes.string.isRequired
 	}
 
 	render () {
 		return (
 			<a href="#">
-				<i className="fa fa-link"></i>
+				<i className={this.props.icon}></i>
 				<span>{this.props.title}</span>
 				<span className="pull-right-container">
 					<i className="fa fa-angle-left pull-right"></i>

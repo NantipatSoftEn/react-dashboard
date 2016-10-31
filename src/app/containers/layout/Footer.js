@@ -14,7 +14,7 @@ class Footer extends Component {
 		return (
 			<footer className="main-footer">
 			<div className="pull-right hidden-xs">
-				@iamgoangle
+				<a href="mailto:st.teerapong@gmail.com">@iamgoangle</a>
 			</div>
 				<strong>Copyright &copy; 2016 <a href="#">Yellow Duck dot I/O</a>.</strong>
 			</footer>
@@ -22,4 +22,4 @@ class Footer extends Component {
 	}
 }
 
-export default Footer
+export default Footer;
