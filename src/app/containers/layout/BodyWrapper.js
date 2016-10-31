@@ -21,8 +21,8 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class BodyWrapper extends Component {
-	constructor (props) {
-		super(props);
+	constructor (props, context) {
+		super(props, context);
 		this.state = {
 			pathname: this.props.content.props.location.pathname
 		}
@@ -44,8 +44,8 @@ class BodyWrapper extends Component {
 			<div className="content-wrapper">
 				<section className="content-header">
 					<h1>
-						{this.props.pageHeader}
-						<small>{this.props.pageDesc}</small>
+						{this.context.appProps.children.props.route.title}
+						<small>{this.context.appProps.children.props.route.pageDesc}</small>
 					</h1>
 
 					<BreadCrumb activeComponent={this.context.appProps.location.pathname}>
