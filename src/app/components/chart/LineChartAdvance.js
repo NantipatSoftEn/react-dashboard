@@ -11,7 +11,7 @@ class LineChartAdvance extends Component {
 
 	render () {
 		return (
-			<div className="col-lg-7 col-md-7">
+			<div className="col-lg-7 col-md-7 connectedSortable">
 				<div className="box box-solid bg-teal-gradient">
 					<div className="box-header">
 						<i className="fa fa-th"></i>

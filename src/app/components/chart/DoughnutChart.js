@@ -38,7 +38,7 @@ class Doughnut extends Component {
 		);
 
 		return (
-			<div className="col-lg-5 col-md-5">
+			<div className="col-lg-5 col-md-5 connectedSortable">
 				<div className="box box-danger">
 					<div className="box-header with-border">
 						<h3 className="box-title">{this.props.chartTitle}</h3>
